@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './Home/Home';
@@ -20,16 +20,17 @@ export const App = () => {
     <>
       <Navigations />
       <Container>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<SearchBar />} />
-          <Route path="/movies/:movieId" element={<Movies />}>
-            <Route path="cast" element={<Casts />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
-
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<SearchBar />} />
+            <Route path="/movies/:movieId" element={<Movies />}>
+              <Route path="cast" element={<Casts />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
       </Container>
     </>
   );
