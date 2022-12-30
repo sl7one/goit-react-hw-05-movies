@@ -1,11 +1,11 @@
 import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Home from './Home/Home';
+// import Home from './Home/Home';
 // import Movies from './Movies/Movies';
-import Casts from './Movies/Casts';
-import Reviews from './Movies/Reviews';
-import SearchBar from './Movies/SearcBar';
+// import Casts from './Movies/Casts';
+// import Reviews from './Movies/Reviews';
+// import SearchBar from './Movies/SearcBar';
 import Navigations from './Pages/Navigations';
 
 const Container = styled.div`
@@ -14,6 +14,10 @@ const Container = styled.div`
 `;
 
 const Movies = lazy(() => import('./Movies/Movies'));
+const Home = lazy(() => import('./Home/Home'));
+const SearchBar = lazy(() => import('./Movies/SearcBar'));
+const Casts = lazy(() => import('./Movies/Casts'));
+const Reviews = lazy(() => import('./Movies/Reviews'));
 
 export const App = () => {
   return (
