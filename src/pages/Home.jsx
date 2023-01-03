@@ -26,6 +26,7 @@ const FilmLink = styled(Link)`
 const Home = () => {
   const [list, setList] = useState([]);
   const location = useLocation();
+  // console.log(location);
 
   useEffect(() => {
     Api().then(data => {
@@ -39,11 +40,8 @@ const Home = () => {
         {list.map(el => {
           return (
             <ListItem key={el.id}>
-              <FilmLink
-                to={`movies/${el.id}`}
-                state={{ location: location.pathname }}
-              >
-                {el.title ?? el.name}{' '}
+              <FilmLink to={`movies/${el.id}`} state={location}>
+                {el.title ?? el.name}
               </FilmLink>
             </ListItem>
           );

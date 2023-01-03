@@ -17,7 +17,6 @@ const Reviews = () => {
   return reviews.total_results ? (
     <ul>
       {reviews.results.map(el => {
-        // console.log(el);
         return (
           <li key={el.id}>
             <h2>Author : {el.author}</h2>
