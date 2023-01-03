@@ -13,6 +13,7 @@ const SearchBar = () => {
   const [params, setParams] = useSearchParams();
   const parametr = params.get('searchQuery');
   const location = useLocation();
+  // console.log(location);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -47,10 +48,7 @@ const SearchBar = () => {
         {data.map(el => {
           return (
             <StyledLi key={el.id}>
-              <Link
-                to={`${el.id}`}
-                state={{ location: location.pathname + location.search }}
-              >
+              <Link to={`${el.id}`} state={location}>
                 {el.original_title}
               </Link>
             </StyledLi>
