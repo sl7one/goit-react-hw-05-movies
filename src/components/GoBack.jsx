@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import styled from 'styled-components';
 
@@ -14,15 +14,12 @@ const GoBack = styled(Link)`
 const HomeBtn = () => {
   const location = useLocation();
 
-  if (!location.state) return null;
+  // if (!location.state) return null;
 
   return (
-    <>
-      <GoBack to={location.state.location}>
-        <BsFillArrowLeftCircleFill /> Go back
-      </GoBack>
-      <Outlet />
-    </>
+    <GoBack to={location.state?.location ?? '/'}>
+      <BsFillArrowLeftCircleFill /> Go back
+    </GoBack>
   );
 };
 

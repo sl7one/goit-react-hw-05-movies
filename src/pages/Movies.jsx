@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 import { ApiId } from 'Api/Api';
-import { Outlet, useParams } from 'react-router-dom';
-import { Suspense, useState } from 'react';
-import { useEffect } from 'react';
-import MetaInfoFilm from './MetaInfoFilm';
-import HomeBtn from './GoBack';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import MetaInfoFilm from '../components/MetaInfoFilm';
+import HomeBtn from '../components/GoBack';
 
 const FilmInfo = styled.div`
   display: flex;
@@ -47,7 +46,6 @@ const Movies = () => {
         </Meta>
       </FilmInfo>
       <MetaInfoFilm />
-      <Outlet />
     </>
   );
 };

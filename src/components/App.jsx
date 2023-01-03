@@ -6,18 +6,18 @@ import styled from 'styled-components';
 // import Casts from './Movies/Casts';
 // import Reviews from './Movies/Reviews';
 // import SearchBar from './Movies/SearcBar';
-import Navigations from './Pages/Navigations';
+import Navigations from './Navigations';
 
 const Container = styled.div`
   font-size: 40px;
   color: #010101;
 `;
 
-const Movies = lazy(() => import('./Movies/Movies'));
-const Home = lazy(() => import('./Home/Home'));
-const SearchBar = lazy(() => import('./Movies/SearcBar'));
-const Casts = lazy(() => import('./Movies/Casts'));
-const Reviews = lazy(() => import('./Movies/Reviews'));
+const Movies = lazy(() => import('../pages/Movies'));
+const Home = lazy(() => import('../pages/Home'));
+const SearchBar = lazy(() => import('./SearcBar'));
+const Casts = lazy(() => import('./Casts'));
+const Reviews = lazy(() => import('./Reviews'));
 
 export const App = () => {
   return (
