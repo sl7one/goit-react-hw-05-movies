@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 import { ApiId } from 'Api/Api';
-import { Outlet, useParams } from 'react-router-dom';
-import { Suspense, useState } from 'react';
-import { useEffect } from 'react';
-import MetaInfoFilm from './MetaInfoFilm';
-import HomeBtn from './GoBack';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import MetaInfoFilm from '../components/MetaInfoFilm';
+import HomeBtn from '../components/GoBack';
 
 const FilmInfo = styled.div`
   display: flex;
@@ -26,15 +25,14 @@ const Movies = () => {
       .catch(console.log);
   }, [movieId]);
 
-  if (!movie) return <p>No founded films</p>;
+  if (!movie) return null;
 
   const url = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : `https://m.media-amazon.com/images/M/MV5BMjM5MTc3NDU4NV5BMl5BanBnXkFtZTgwMTkxMjk3MjE@._V1_.jpg`;
 
-  console.log(movie);
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <HomeBtn />
       <FilmInfo>
         <img src={url} alt={movie.title} width={300} />
@@ -48,8 +46,7 @@ const Movies = () => {
         </Meta>
       </FilmInfo>
       <MetaInfoFilm />
-      <Outlet />
-    </Suspense>
+    </>
   );
 };
 

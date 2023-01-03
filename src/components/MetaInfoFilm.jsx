@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -13,6 +13,7 @@ const MetaInfoFilm = () => {
     <Wrapper>
       <Link to="cast">Casts</Link>
       <Link to="reviews">Reviews</Link>
+      <Outlet />
     </Wrapper>
   );
 };

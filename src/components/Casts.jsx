@@ -1,6 +1,5 @@
 import { ApiCasts } from 'Api/Api';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Casts = () => {
@@ -14,8 +13,6 @@ const Casts = () => {
   }, [movieId]);
 
   if (!casts) return null;
-
-  // console.log(casts.cast);
 
   return (
     <ul>
