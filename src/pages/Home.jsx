@@ -26,7 +26,6 @@ const FilmLink = styled(Link)`
 const Home = () => {
   const [list, setList] = useState([]);
   const location = useLocation();
-  // console.log(location);
 
   useEffect(() => {
     Api().then(data => {

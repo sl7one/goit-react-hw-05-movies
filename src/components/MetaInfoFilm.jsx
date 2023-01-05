@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -9,10 +9,16 @@ const Wrapper = styled.div`
 `;
 
 const MetaInfoFilm = () => {
+  const location = useLocation();
+
   return (
     <Wrapper>
-      <Link to="cast">Casts</Link>
-      <Link to="reviews">Reviews</Link>
+      <Link to="cast" state={location.state}>
+        Casts
+      </Link>
+      <Link to="reviews" state={location.state}>
+        Reviews
+      </Link>
       <Outlet />
     </Wrapper>
   );

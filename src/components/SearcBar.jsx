@@ -3,17 +3,19 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledLi = styled.li`
+const Li = styled.li`
   list-style: none;
 `;
 
 const SearchBar = () => {
   const [value, setValue] = useState('');
   const [data, setData] = useState([]);
+
   const [params, setParams] = useSearchParams();
   const parametr = params.get('searchQuery');
+
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -47,11 +49,11 @@ const SearchBar = () => {
       <ul>
         {data.map(el => {
           return (
-            <StyledLi key={el.id}>
+            <Li key={el.id}>
               <Link to={`${el.id}`} state={location}>
                 {el.original_title}
               </Link>
-            </StyledLi>
+            </Li>
           );
         })}
       </ul>
