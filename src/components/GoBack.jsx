@@ -11,12 +11,11 @@ const GoBack = styled(Link)`
   margin: 15px;
 `;
 
-const HomeBtn = () => {
+const HomeBtn = ({ loc }) => {
   const location = useLocation();
-  // console.log(location);
 
   return (
-    <GoBack to={location?.state ?? '/'}>
+    <GoBack to={loc?.state ?? '/'}>
       <BsFillArrowLeftCircleFill /> Go back
     </GoBack>
   );

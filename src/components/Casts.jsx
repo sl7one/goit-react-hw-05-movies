@@ -7,7 +7,7 @@ const Casts = () => {
   const [casts, setCasts] = useState(null);
 
   useEffect(() => {
-    ApiCasts(Number(movieId)).then(data => {
+    ApiCasts(movieId).then(data => {
       setCasts(data);
     });
   }, [movieId]);
