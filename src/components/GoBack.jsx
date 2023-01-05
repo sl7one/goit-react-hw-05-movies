@@ -12,7 +12,6 @@ const GoBack = styled(Link)`
 `;
 
 const HomeBtn = ({ loc }) => {
-  const location = useLocation();
 
   return (
     <GoBack to={loc?.state ?? '/'}>
