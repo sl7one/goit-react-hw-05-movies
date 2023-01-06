@@ -18,10 +18,8 @@ const Movies = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
 
-  // console.log(location);
-
   useEffect(() => {
-    ApiId(Number(movieId))
+    ApiId(movieId)
       .then(data => {
         setMovie(data);
       })
@@ -36,7 +34,7 @@ const Movies = () => {
 
   return (
     <>
-      <HomeBtn loc={location} />
+      <HomeBtn />
       <FilmInfo>
         <img src={url} alt={movie.title} width={300} />
         <Meta>

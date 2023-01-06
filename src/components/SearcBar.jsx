@@ -15,7 +15,6 @@ const SearchBar = () => {
   const parametr = params.get('searchQuery');
 
   const location = useLocation();
-  console.log(location);
 
   const onSubmit = event => {
     event.preventDefault();
