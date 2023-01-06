@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { ApiId } from 'Api/Api';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MetaInfoFilm from '../components/MetaInfoFilm';
 import HomeBtn from '../components/GoBack';
@@ -16,12 +16,9 @@ const Meta = styled.div`
 const Movies = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
-
-  // console.log(location);
 
   useEffect(() => {
-    ApiId(Number(movieId))
+    ApiId(movieId)
       .then(data => {
         setMovie(data);
       })
@@ -36,7 +33,7 @@ const Movies = () => {
 
   return (
     <>
-      <HomeBtn loc={location} />
+      <HomeBtn />
       <FilmInfo>
         <img src={url} alt={movie.title} width={300} />
         <Meta>
