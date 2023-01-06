@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { ApiId } from 'Api/Api';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MetaInfoFilm from '../components/MetaInfoFilm';
 import HomeBtn from '../components/GoBack';
@@ -16,7 +16,6 @@ const Meta = styled.div`
 const Movies = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
 
   useEffect(() => {
     ApiId(movieId)
